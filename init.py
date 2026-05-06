@@ -1,1 +1,2 @@
-print("How stragne, I'm learning AI and ML now!")
+print("\\(*o*)/ Fuck!!!")
+print("gotta learn these shits... kfsdajfklsa :/")
