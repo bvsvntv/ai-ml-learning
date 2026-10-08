@@ -34,6 +34,18 @@ wheels = [
 ]
 
 [[package]]
+name = "color-cli"
+version = "0.1.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "termcolor" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c3/46/5402b06e6e0afe1a7d43ff41c2a57a7135451e47c5dd04c54bba52e9b43f/color_cli-0.1.3.tar.gz", hash = "sha256:ecea5debf876f48f39010e27fea9d3577d6532739254faaffb3ca11873da47a9", size = 6623, upload-time = "2025-08-03T09:46:48.453Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/40/75/5ff03bf438fb7ebedf6f8871640e29c6b14bfaf0ce85910a27539abf5975/color_cli-0.1.3-py3-none-any.whl", hash = "sha256:59b7327e5f1c318521c13f9a0fd19088a9686ec92019a1983c772c1eab4371ee", size = 7124, upload-time = "2025-08-03T09:46:47.468Z" },
+]
+
+[[package]]
 name = "dotenv"
 version = "0.9.9"
 source = { registry = "https://pypi.org/simple" }
@@ -58,6 +70,7 @@ name = "how-llm-tool-calling-works"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "color-cli" },
     { name = "dotenv" },
     { name = "ollama" },
     { name = "pydantic" },
@@ -65,6 +78,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "color-cli", specifier = ">=0.1.3" },
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "ollama", specifier = ">=0.6.3" },
     { name = "pydantic", specifier = ">=2.13.5" },
@@ -217,6 +231,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/74/26/2fbeedb218a787a5eea551c7532cac4e009f83d689dd2faa0d0353473f86/python_dotenv-1.2.4.tar.gz", hash = "sha256:f0d53e69935a851c0dcc78f3ab7aaccd8cabef0b92382b576b824212902873c0", size = 60824, upload-time = "2026-10-01T05:36:10Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/60/d1/38f3a3405989a89ac18390803e70c6ad7c7760da4f9b83cbeca0c44a0c72/python_dotenv-1.2.4-py3-none-any.whl", hash = "sha256:42269a8a5b3fd54ffa6f3d84b18abed50064717576b4ecf03dc4a55d8aa04fdc", size = 23266, upload-time = "2026-10-01T05:36:08.633Z" },
+]
+
+[[package]]
+name = "termcolor"
+version = "3.3.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/46/79/cf31d7a93a8fdc6aa0fbb665be84426a8c5a557d9240b6239e9e11e35fc5/termcolor-3.3.0.tar.gz", hash = "sha256:348871ca648ec6a9a983a13ab626c0acce02f515b9e1983332b17af7979521c5", size = 14434, upload-time = "2025-12-29T12:55:21.882Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/33/d1/8bb87d21e9aeb323cc03034f5eaf2c8f69841e40e4853c2627edf8111ed3/termcolor-3.3.0-py3-none-any.whl", hash = "sha256:cf642efadaf0a8ebbbf4bc7a31cec2f9b5f21a9f726f4ccbb08192c9c26f43a5", size = 7734, upload-time = "2025-12-29T12:55:20.718Z" },
 ]
 
 [[package]]

@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from ollama import Client
+from color_cli import color_text
 
 load_dotenv()
 
@@ -29,7 +30,7 @@ def main():
                 ]
             )
 
-        print(response.message.content)
+        print(color_text(response.message.content, color='green'))
 
 
 if __name__ == "__main__":
