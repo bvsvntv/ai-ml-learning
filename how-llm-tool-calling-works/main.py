@@ -1,5 +1,11 @@
+import argparse
+
 def main():
-    print("Hello from how-llm-tool-calling-works!")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-q", "--query")
+
+    args = parser.parse_args()
+    print("query: ", args.query)
 
 
 if __name__ == "__main__":
