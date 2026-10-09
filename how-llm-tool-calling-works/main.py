@@ -16,22 +16,29 @@ def main():
     while True:
         user_input = input(">>> ")
 
-        if user_input.lower() == 'quit':
+        if user_input.lower() == 'quit' or user_input.lower() == 'exit':
             print("bye!")
             break
 
-        response = client.chat(
-                model='llama3.2',
-                messages=[
-                    {
-                        'role': 'user',
-                        'content': user_input
-                    }
-                ]
-            )
+        try:
+            stream = client.chat(
+                    model='llama3.2',
+                    messages=[
+                        {
+                            'role': 'user',
+                            'content': user_input
+                            }
+                        ],
+                    stream=True
+                    )
 
-        print(color_text(response.message.content, color='green'))
+            for chunk in stream:
+                print(chunk.message.content, end="", flush=True)
 
+            print()
+
+        except Exception as e:
+            print(f"\nERROR: {e}")
 
 if __name__ == "__main__":
     main()
