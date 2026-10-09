@@ -16,7 +16,8 @@ def main():
     while True:
         user_input = input(">>> ")
 
-        if user_input.lower() == 'quit' or user_input.lower() == 'exit':
+        quitting_words = ["bye", "exit", "q", "quit"]
+        if user_input.lower() in quitting_words:
             print("bye!")
             break
 
