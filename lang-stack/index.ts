@@ -1,10 +1,34 @@
+import readline from "node:readline";
+import { config } from "dotenv";
 import { HumanMessage } from "@langchain/core/messages";
 import { agent } from "./agent";
 
-const result = await agent.invoke({
-  messages: [new HumanMessage("Add 3 and 4.")],
+config();
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
 });
 
-for (const message of result.messages) {
-  console.log(`[${message.type}]: ${message.text}`);
+async function askQuestion() {
+  rl.question(">> ", async (query) => {
+    if (["exit", "quit", "q"].includes(query.trim().toLowerCase())) {
+      rl.close();
+      return;
+    }
+
+    try {
+      const result = await agent.invoke({
+        messages: [new HumanMessage(query)],
+      });
+
+      console.log(result.messages.at(-1)?.content);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
+    askQuestion();
+  });
 }
+
+askQuestion();
