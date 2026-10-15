@@ -18,11 +18,26 @@ async function askQuestion() {
     }
 
     try {
-      const result = await agent.invoke({
-        messages: [new HumanMessage(query)],
-      });
+      const stream = await agent.stream(
+        {
+          messages: [new HumanMessage(query)],
+        },
+        { streamMode: "messages" },
+      );
 
-      console.log(result.messages.at(-1)?.content);
+      for await (const [chunk] of stream) {
+        if (typeof chunk.content === "string") {
+          process.stdout.write(chunk.content);
+        } else if (Array.isArray(chunk.content)) {
+          for (const part of chunk.content) {
+            if (part.type === "text") {
+              process.stdout.write(part.text as string);
+            }
+          }
+        }
+      }
+
+      console.log();
     } catch (error) {
       console.error("Error:", error);
     }
